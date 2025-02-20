@@ -5,6 +5,7 @@
 # Import the pygame and system modules
 import pygame
 import sys
+import config
 
 # --- Constants --- #
 
@@ -38,13 +39,19 @@ while running:
     # --- Game Logic --- #
     # --- Draw --- #
     screen.fill(WHITE)
-
+    for y_offset in range(0, 100, 10):
+        pygame.draw.line(screen, config.COLOR_GOLDENROD, [800, 10 + y_offset], [0, 600 + y_offset], 5)
+    x_offset = 0
+    while x_offset < 130:
+        pygame.draw.line(screen, config.COLOR_PALEVIOLETRED, [-130 + x_offset, 14], [800 + x_offset, 600], 5)
+        x_offset = x_offset + 14
     # This is where you draw game objects:
 
     pygame.display.flip() # updateing the display
 
     # limit FPS
     clock.tick(FPS)
+
 
 
 pygame.quit()
